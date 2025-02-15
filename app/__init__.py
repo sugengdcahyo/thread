@@ -41,6 +41,15 @@ def create_app():
     jwt.init_app(app)
     cors.init_app(app, resources={r"/*": {"origins": "*"}})
 
+    # Middleware untuk membungkus semua response
+    # @app.after_request
+    # def wrap_response(response):
+    #     if response.is_json:
+    #         response_data = response.get_json()
+    #         if response_data is not None:
+    #             return {"data": response_data}
+    #     return response
+
     # Setup Flask-RESTx API
     api = Api(app, version="1.0", title="Thread API", description="API for Thread-like Application")
 
